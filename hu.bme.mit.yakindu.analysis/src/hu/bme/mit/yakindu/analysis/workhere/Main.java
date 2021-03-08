@@ -1,9 +1,11 @@
 package hu.bme.mit.yakindu.analysis.workhere;
 
 import org.eclipse.emf.common.util.TreeIterator;
+
 import org.eclipse.emf.ecore.EObject;
 import org.junit.Test;
 import org.yakindu.sct.model.sgraph.State;
+import org.yakindu.sct.model.sgraph.Transition;
 import org.yakindu.sct.model.sgraph.Statechart;
 
 import hu.bme.mit.model2gml.Model2GML;
@@ -25,13 +27,45 @@ public class Main {
 		// Reading model
 		Statechart s = (Statechart) root;
 		TreeIterator<EObject> iterator = s.eAllContents();
+		int count=1;	
 		while (iterator.hasNext()) {
 			EObject content = iterator.next();
 			if(content instanceof State) {
 				State state = (State) content;
-				System.out.println(state.getName());
+				if(state.getOutgoingTransitions().size()==0) {
+					if(state.getName().equals("noname")) {
+						String newName="STATE"+count;
+						state.setName(newName);
+						System.out.println("Trap: " + state.getName());
+						count+=1;
+					}
+					else {
+						System.out.println("Trap: " + state.getName());
+					}
+				}
+				
+				else if(state.getName().equals("noname")) {
+					String newName="STATE"+count;
+					state.setName(newName);
+					System.out.println(state.getName());
+					count+=1;
+				}
+				
+				else {
+					System.out.println(state.getName());
+				}
+			}
+			else if(content instanceof Transition) {
+				Transition t=(Transition) content;
+				if(t.getSource().getName().equals("")) {
+					System.out.println(t.getTarget().getName());
+				}
+				else {
+					System.out.println(t.getSource().getName()  +" -> "+ t.getTarget().getName());
+				}
 			}
 		}
+		
 		
 		// Transforming the model into a graph representation
 		String content = model2gml.transform(root);
