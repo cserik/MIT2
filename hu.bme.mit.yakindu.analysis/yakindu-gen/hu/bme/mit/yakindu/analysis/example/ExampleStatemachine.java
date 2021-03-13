@@ -6,48 +6,48 @@ import hu.bme.mit.yakindu.analysis.ITimer;
 public class ExampleStatemachine implements IExampleStatemachine {
 	protected class SCInterfaceImpl implements SCInterface {
 	
-		private boolean start;
+		private boolean st;
 		
-		public void raiseStart() {
-			start = true;
+		public void raiseSt() {
+			st = true;
 		}
 		
-		private boolean white;
+		private boolean wh;
 		
-		public void raiseWhite() {
-			white = true;
+		public void raiseWh() {
+			wh = true;
 		}
 		
-		private boolean black;
+		private boolean bl;
 		
-		public void raiseBlack() {
-			black = true;
+		public void raiseBl() {
+			bl = true;
 		}
 		
-		private long whiteTime;
+		private long whTime;
 		
-		public long getWhiteTime() {
-			return whiteTime;
+		public long getWhTime() {
+			return whTime;
 		}
 		
-		public void setWhiteTime(long value) {
-			this.whiteTime = value;
+		public void setWhTime(long value) {
+			this.whTime = value;
 		}
 		
-		private long blackTime;
+		private long blTime;
 		
-		public long getBlackTime() {
-			return blackTime;
+		public long getBlTime() {
+			return blTime;
 		}
 		
-		public void setBlackTime(long value) {
-			this.blackTime = value;
+		public void setBlTime(long value) {
+			this.blTime = value;
 		}
 		
 		protected void clearEvents() {
-			start = false;
-			white = false;
-			black = false;
+			st = false;
+			wh = false;
+			bl = false;
 		}
 	}
 	
@@ -84,9 +84,9 @@ public class ExampleStatemachine implements IExampleStatemachine {
 		}
 		clearEvents();
 		clearOutEvents();
-		sCInterface.setWhiteTime(60);
+		sCInterface.setWhTime(60);
 		
-		sCInterface.setBlackTime(60);
+		sCInterface.setBlTime(60);
 	}
 	
 	public void enter() {
@@ -203,32 +203,32 @@ public class ExampleStatemachine implements IExampleStatemachine {
 		return sCInterface;
 	}
 	
-	public void raiseStart() {
-		sCInterface.raiseStart();
+	public void raiseSt() {
+		sCInterface.raiseSt();
 	}
 	
-	public void raiseWhite() {
-		sCInterface.raiseWhite();
+	public void raiseWh() {
+		sCInterface.raiseWh();
 	}
 	
-	public void raiseBlack() {
-		sCInterface.raiseBlack();
+	public void raiseBl() {
+		sCInterface.raiseBl();
 	}
 	
-	public long getWhiteTime() {
-		return sCInterface.getWhiteTime();
+	public long getWhTime() {
+		return sCInterface.getWhTime();
 	}
 	
-	public void setWhiteTime(long value) {
-		sCInterface.setWhiteTime(value);
+	public void setWhTime(long value) {
+		sCInterface.setWhTime(value);
 	}
 	
-	public long getBlackTime() {
-		return sCInterface.getBlackTime();
+	public long getBlTime() {
+		return sCInterface.getBlTime();
 	}
 	
-	public void setBlackTime(long value) {
-		sCInterface.setBlackTime(value);
+	public void setBlTime(long value) {
+		sCInterface.setBlTime(value);
 	}
 	
 	/* Entry action for state 'Black'. */
@@ -329,7 +329,7 @@ public class ExampleStatemachine implements IExampleStatemachine {
 		
 		if (try_transition) {
 			if (react()==false) {
-				if (sCInterface.start) {
+				if (sCInterface.st) {
 					exitSequence_main_region_Init();
 					enterSequence_main_region_White_default();
 				} else {
@@ -345,13 +345,13 @@ public class ExampleStatemachine implements IExampleStatemachine {
 		
 		if (try_transition) {
 			if (react()==false) {
-				if (sCInterface.black) {
+				if (sCInterface.bl) {
 					exitSequence_main_region_Black();
 					enterSequence_main_region_White_default();
 				} else {
 					if (timeEvents[0]) {
 						exitSequence_main_region_Black();
-						sCInterface.setBlackTime(sCInterface.getBlackTime() - 1);
+						sCInterface.setBlTime(sCInterface.getBlTime() - 1);
 						
 						enterSequence_main_region_Black_default();
 					} else {
@@ -368,13 +368,13 @@ public class ExampleStatemachine implements IExampleStatemachine {
 		
 		if (try_transition) {
 			if (react()==false) {
-				if (sCInterface.white) {
+				if (sCInterface.wh) {
 					exitSequence_main_region_White();
 					enterSequence_main_region_Black_default();
 				} else {
 					if (timeEvents[1]) {
 						exitSequence_main_region_White();
-						sCInterface.setWhiteTime(sCInterface.getWhiteTime() - 1);
+						sCInterface.setWhTime(sCInterface.getWhTime() - 1);
 						
 						enterSequence_main_region_White_default();
 					} else {

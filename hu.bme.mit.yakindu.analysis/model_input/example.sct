@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:sgraph="http://www.yakindu.org/sct/sgraph/2.0.0">
-  <sgraph:Statechart xmi:id="_6_kosO11Eeaky9HhW8GsWQ" specification="interface:&#xD;&#xA;in event start&#xD;&#xA;in event white&#xD;&#xA;in event black&#xD;&#xA;var whiteTime:integer = 60&#xD;&#xA;var blackTime:integer = 60" name="example">
+  <sgraph:Statechart xmi:id="_6_kosO11Eeaky9HhW8GsWQ" specification="interface:&#xD;&#xA;in event st&#xD;&#xA;in event wh&#xD;&#xA;in event bl&#xD;&#xA;var whTime:integer = 60&#xD;&#xA;var blTime:integer = 60" name="example">
     <regions xmi:id="_6_tyou11Eeaky9HhW8GsWQ" name="main region">
       <vertices xsi:type="sgraph:Entry" xmi:id="_6_tyrO11Eeaky9HhW8GsWQ">
         <outgoingTransitions xmi:id="_6_4xwe11Eeaky9HhW8GsWQ" target="_6_tyuO11Eeaky9HhW8GsWQ"/>
       </vertices>
       <vertices xsi:type="sgraph:State" xmi:id="_6_tyuO11Eeaky9HhW8GsWQ" name="Init" incomingTransitions="_6_4xwe11Eeaky9HhW8GsWQ">
-        <outgoingTransitions xmi:id="_dL7kUO12Eeaky9HhW8GsWQ" specification="start" target="_No5UQO12Eeaky9HhW8GsWQ"/>
+        <outgoingTransitions xmi:id="_dL7kUO12Eeaky9HhW8GsWQ" specification="st" target="_No5UQO12Eeaky9HhW8GsWQ"/>
       </vertices>
       <vertices xsi:type="sgraph:State" xmi:id="_MlHjEO12Eeaky9HhW8GsWQ" name="Black" incomingTransitions="_eo-xIO12Eeaky9HhW8GsWQ _JX5g8INKEeuu0KeV9TxW9Q">
-        <outgoingTransitions xmi:id="_GeVS0INKEeuu0KeV9TxW9Q" specification="black" target="_No5UQO12Eeaky9HhW8GsWQ"/>
-        <outgoingTransitions xmi:id="_JX5g8INKEeuu0KeV9TxW9Q" specification="after 1 s/&#xA;blackTime-=1" target="_MlHjEO12Eeaky9HhW8GsWQ"/>
+        <outgoingTransitions xmi:id="_GeVS0INKEeuu0KeV9TxW9Q" specification="bl" target="_No5UQO12Eeaky9HhW8GsWQ"/>
+        <outgoingTransitions xmi:id="_JX5g8INKEeuu0KeV9TxW9Q" specification="after 1 s/&#xA;blTime-=1" target="_MlHjEO12Eeaky9HhW8GsWQ"/>
       </vertices>
       <vertices xsi:type="sgraph:State" xmi:id="_No5UQO12Eeaky9HhW8GsWQ" specification="" name="White" incomingTransitions="_dL7kUO12Eeaky9HhW8GsWQ _26kFsO12Eeaky9HhW8GsWQ _GeVS0INKEeuu0KeV9TxW9Q">
-        <outgoingTransitions xmi:id="_eo-xIO12Eeaky9HhW8GsWQ" specification="white" target="_MlHjEO12Eeaky9HhW8GsWQ"/>
-        <outgoingTransitions xmi:id="_26kFsO12Eeaky9HhW8GsWQ" specification="after 1 s/&#xD;&#xA;whiteTime-=1" target="_No5UQO12Eeaky9HhW8GsWQ"/>
+        <outgoingTransitions xmi:id="_eo-xIO12Eeaky9HhW8GsWQ" specification="wh" target="_MlHjEO12Eeaky9HhW8GsWQ"/>
+        <outgoingTransitions xmi:id="_26kFsO12Eeaky9HhW8GsWQ" specification="after 1 s/&#xD;&#xA;whTime-=1" target="_No5UQO12Eeaky9HhW8GsWQ"/>
       </vertices>
     </regions>
   </sgraph:Statechart>
@@ -156,7 +156,7 @@
     <edges xmi:id="_JYDR8INKEeuu0KeV9TxW9Q" type="Transition" element="_JX5g8INKEeuu0KeV9TxW9Q" source="_MlJ_UO12Eeaky9HhW8GsWQ" target="_MlJ_UO12Eeaky9HhW8GsWQ">
       <children xsi:type="notation:DecorationNode" xmi:id="_JYD5AYNKEeuu0KeV9TxW9Q" type="TransitionExpression">
         <styles xsi:type="notation:ShapeStyle" xmi:id="_JYD5AoNKEeuu0KeV9TxW9Q"/>
-        <layoutConstraint xsi:type="notation:Location" xmi:id="_JYEgEINKEeuu0KeV9TxW9Q" x="61" y="-29"/>
+        <layoutConstraint xsi:type="notation:Location" xmi:id="_JYEgEINKEeuu0KeV9TxW9Q" x="-16" y="-46"/>
       </children>
       <styles xsi:type="notation:ConnectorStyle" xmi:id="_JYDR8YNKEeuu0KeV9TxW9Q" routing="Rectilinear" lineColor="4210752"/>
       <styles xsi:type="notation:FontStyle" xmi:id="_JYD5AINKEeuu0KeV9TxW9Q" fontName="Verdana"/>
